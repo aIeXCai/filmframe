@@ -1,0 +1,14 @@
+node_modules/
+dist/
+tmp/
+.DS_Store
+*.log
+
+# Local design and QA captures
+design-qa.md
+editor-preview-v1.png
+home-preview.png
+home-font-final.png
+home-font-comparison.png
+implementation-home-*.png
+
