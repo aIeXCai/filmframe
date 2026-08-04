@@ -116,7 +116,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .section-heading > span { color: var(--amber); font: 11px/1 monospace; letter-spacing: .14em; padding-top: 10px; }
 .section-heading h2 { font-family: var(--home-serif); font-size: 38px; font-weight: 520; margin: 0 0 12px; }
 .section-heading p { color: var(--muted); margin: 0; }
-.style-showcase { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.style-showcase { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .style-card { background: #161916; border: 1px solid var(--line); padding: 12px; transition: border-color .2s, transform .2s; }
 .style-card:hover { border-color: rgba(230,155,25,.55); transform: translateY(-3px); }
 .style-image-wrap { aspect-ratio: 4/3; overflow: hidden; background: #090a08; }
@@ -220,6 +220,72 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .style-c .film-metadata > .edge-location, .style-c .film-metadata > .edge-date { z-index: 4; bottom: 4.7%; color: #b94a2d; background: transparent; box-shadow: none; font-family: "Bradley Hand", "Kaiti SC", cursive; font-weight: 600; font-size: clamp(13px, 1.8cqw, 28px); letter-spacing: .12em; transform: rotate(-2deg); }
 .style-c .edge-location { left: 62.7%; max-width: 17%; overflow: hidden; text-overflow: ellipsis; }
 .style-c .edge-date { left: 80%; }
+
+.style-d .slide-mount {
+  position: absolute;
+  z-index: 2;
+  left: 10.2%;
+  top: 10.2%;
+  width: 80%;
+  height: 77.5%;
+  border: .1cqw solid rgba(184, 188, 185, .72);
+  border-radius: .42cqw;
+  background:
+    linear-gradient(90deg, transparent 0 8.7%, #235dab 8.7% 9.35%, #83a9d5 9.35% 9.55%, transparent 9.55%),
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.7), transparent 24%),
+    linear-gradient(145deg, #f4f3ef 0%, #e9e9e5 58%, #f1f0ec 100%);
+  box-shadow:
+    0 1.05cqw 1.45cqw rgba(13, 31, 39, .32),
+    0 .18cqw .3cqw rgba(19, 34, 40, .2),
+    inset 0 0 1cqw rgba(255,255,255,.46);
+}
+.style-d .slide-mount::after {
+  content: "";
+  position: absolute;
+  left: 13%;
+  top: 15.8%;
+  width: 80%;
+  height: 67.2%;
+  border: .12cqw solid rgba(205, 207, 202, .92);
+  border-radius: 1.05cqw;
+  box-shadow:
+    inset 0 .52cqw .72cqw rgba(28, 34, 35, .34),
+    0 0 0 .28cqw rgba(255,255,255,.42);
+}
+.style-d .photo-window {
+  z-index: 3;
+  border-radius: .68cqw;
+  box-shadow: 0 .18cqw .42cqw rgba(5, 11, 15, .28);
+}
+.style-d .photo-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: .11cqw solid rgba(19, 28, 33, .34);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 .4cqw .72cqw rgba(5, 12, 16, .26),
+    inset 0 0 .32cqw rgba(5, 12, 16, .2),
+    inset 0 -.12cqw .3cqw rgba(255, 255, 255, .16);
+  pointer-events: none;
+}
+.style-d .drag-hint { z-index: 2; }
+.style-d .film-metadata > span {
+  color: #20252a;
+  font-size: clamp(7px, 1.02cqw, 17px);
+  background: transparent;
+  box-shadow: none;
+  font-weight: 650;
+  letter-spacing: .055em;
+}
+.style-d .edge-stock { top: 15.25%; left: 21.25%; max-width: 27%; overflow: hidden; text-overflow: ellipsis; }
+.style-d .edge-code { top: 15.25%; left: 50.45%; max-width: 12%; overflow: hidden; text-overflow: ellipsis; }
+.style-d .edge-code-secondary { display: none; }
+.style-d .edge-roll { top: 15.25%; right: 18.1%; }
+.style-d .edge-frame { bottom: 16.35%; left: 18.8%; min-width: 5%; }
+.style-d .edge-location { bottom: 16.35%; left: 46.8%; max-width: 23%; overflow: hidden; text-overflow: ellipsis; }
+.style-d .edge-date { bottom: 16.35%; right: 14.8%; }
 .canvas-controls { border-top: 1px solid var(--line); display: flex; align-items: center; padding: 0 16px; gap: 12px; }
 .canvas-controls button { height: 30px; background: transparent; border: 1px solid var(--line); color: #b6b8ae; font-size: 10px; padding: 0 10px; cursor: pointer; }
 .canvas-controls button:hover:not(:disabled) { border-color: #6d7067; color: white; }
@@ -315,7 +381,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .canvas-column { order: 1; height: 520px; }
   .thumbnail-rail { order: 2; min-height: 145px; grid-template-columns: 112px 1fr; }
   .template-panel { order: 3; border: 0; border-top: 1px solid var(--line); }
-  .template-list { grid-template-columns: repeat(3, 1fr); }
+  .template-list { grid-template-columns: repeat(2, 1fr); }
   .settings-panel { order: 4; border: 0; border-top: 1px solid var(--line); }
   .settings-actions { padding-bottom: 30px; }
   .canvas-controls { gap: 7px; overflow-x: auto; }

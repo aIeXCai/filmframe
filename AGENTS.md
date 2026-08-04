@@ -13,7 +13,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 ## FilmFrame product decisions
 
 - The product has an introduction-led home page before the editing workspace.
-- Every photo owns its own A, B, or C template choice; changing one photo must not change the others.
+- Every photo owns its own A, B, C, or D template choice; changing one photo must not change the others.
 - Frame numbers are derived from the current photo order and are never editable. They remain continuous (`01`, `02`, `03`...) after add, delete, or reorder operations.
 - Film stock, edge code, roll number, location, and date belong to each photo independently; changing the current photo must not modify any other photo's metadata.
 - The photo editor may change crop, zoom, position, and 90-degree rotation only. It must not expose color or filter controls.
@@ -22,3 +22,4 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Dynamic frame numbers must visually replace the template's sample number inside its native mechanical type slot. Do not add a detached rectangular badge over the film artwork.
 - Editing and export must use the `style-*-clean.png` text-free template assets. Keep the original `style-*.png` files for marketing and thumbnail previews only; never conceal baked text with flat CSS color blocks or masking rectangles.
 - The home page uses a bundled premium editorial type system: Noto Serif SC Variable for display headings and Noto Sans SC Variable for navigation and body copy. In the hero, both headline sentences should remain on one line at common desktop widths; the amber sentence `它只需要一个好画框。` is slightly smaller than the white sentence.
+- Template D is the cool-toned slide-lightbox treatment: a white mounted 35mm slide on an illuminated cyan inspection table with editable metadata printed into the mount.

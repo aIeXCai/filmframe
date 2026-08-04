@@ -41,6 +41,13 @@ const TEMPLATE_DATA = {
     previewSrc: "/assets/style-c.png",
     window: { left: "13.7%", top: "15.6%", width: "72.7%", height: "65.1%" },
   },
+  D: {
+    name: "幻灯片灯箱",
+    description: "冷调灯箱与专业正片装帧",
+    src: "/assets/style-d-lightbox-v2.png",
+    previewSrc: "/assets/style-d-preview-v2.png",
+    window: { left: "21.15%", top: "23.15%", width: "62.9%", height: "50.8%" },
+  },
 };
 
 const FILM_STOCKS = [
@@ -107,6 +114,7 @@ function FilmSurface({ item, frameNumber, metadata, interactive = false, onDragS
   return (
     <div className={`film-surface style-${item.style.toLowerCase()}`} ref={surfaceRef}>
       <img className="template-image" src={template.src} alt={`${template.name}模板`} draggable="false" />
+      {item.style === "D" && <div className="slide-mount" aria-hidden="true" />}
       <div
         className={`photo-window ${interactive ? "is-interactive" : ""}`}
         style={windowStyle}
@@ -158,7 +166,7 @@ function Home({ onStart }) {
             <p>上传照片，套用真实感 135 胶片结构，调整构图与片边信息。没有 AI，没有滤镜，所有处理都留在你的浏览器里。</p>
             <div className="hero-actions">
               <button className="primary-action" onClick={onStart}>开始制作 <ArrowRight weight="bold" /></button>
-              <a className="text-action" href="#styles">查看三种风格</a>
+              <a className="text-action" href="#styles">查看四种风格</a>
             </div>
             <div className="trust-row">
               <span><ShieldCheck weight="fill" /> 本地处理</span>
@@ -181,8 +189,8 @@ function Home({ onStart }) {
 
         <section className="styles-section" id="styles">
           <div className="section-heading">
-            <span>01 / THREE FORMS</span>
-            <div><h2>三种胶片结构</h2><p>每张照片都可以独立选择自己的表达方式。</p></div>
+            <span>01 / FOUR FORMS</span>
+            <div><h2>四种胶片结构</h2><p>每张照片都可以独立选择自己的表达方式。</p></div>
           </div>
           <div className="style-showcase">
             {Object.entries(TEMPLATE_DATA).map(([key, template]) => (
@@ -201,7 +209,7 @@ function Home({ onStart }) {
           </div>
           <div className="steps">
             <article><b>01</b><UploadSimple /><h3>上传照片</h3><p>一次添加最多 12 张 JPEG、PNG 或 WebP。</p></article>
-            <article><b>02</b><Sparkle /><h3>逐张选择风格</h3><p>A、B、C 可按照片独立切换，裁切参数彼此保留。</p></article>
+            <article><b>02</b><Sparkle /><h3>逐张选择风格</h3><p>A、B、C、D 可按照片独立切换，裁切参数彼此保留。</p></article>
             <article><b>03</b><DownloadSimple /><h3>检查并导出</h3><p>帧号跟随顺序自动更新，批量打包为 ZIP。</p></article>
           </div>
         </section>
