@@ -18,6 +18,7 @@ import {
 } from "@phosphor-icons/react";
 import { toPng } from "html-to-image";
 import JSZip from "jszip";
+import { EXPORT_PNG_OPTIONS, prepareExportNode } from "./export-image.js";
 
 const TEMPLATE_DATA = {
   A: {
@@ -316,11 +317,10 @@ function Editor({ onHome }) {
     if (!items.length || exporting) return;
     setExporting(true);
     try {
-      await document.fonts.ready;
-      const images = [...document.images];
-      await Promise.all(images.map((img) => img.complete ? Promise.resolve() : new Promise((resolve) => { img.onload = resolve; img.onerror = resolve; })));
+      await document.fonts?.ready;
       if (items.length === 1) {
-        const dataUrl = await toPng(exportRefs.current.get(items[0].id), { pixelRatio: 2, cacheBust: true });
+        const node = await prepareExportNode(exportRefs.current.get(items[0].id));
+        const dataUrl = await toPng(node, EXPORT_PNG_OPTIONS);
         const link = document.createElement("a");
         link.download = `${projectName || "FILMFRAME"}_${twoDigits(0)}.png`;
         link.href = dataUrl;
@@ -329,7 +329,8 @@ function Editor({ onHome }) {
         const zip = new JSZip();
         for (let index = 0; index < items.length; index += 1) {
           const item = items[index];
-          const dataUrl = await toPng(exportRefs.current.get(item.id), { pixelRatio: 2, cacheBust: true });
+          const node = await prepareExportNode(exportRefs.current.get(item.id));
+          const dataUrl = await toPng(node, EXPORT_PNG_OPTIONS);
           zip.file(`${projectName || "FILMFRAME"}_${item.style}_${twoDigits(index)}.png`, dataUrl.split(",")[1], { base64: true });
         }
         const blob = await zip.generateAsync({ type: "blob" });
@@ -341,8 +342,8 @@ function Editor({ onHome }) {
       }
       flash(items.length > 1 ? `已导出 ${items.length} 张成品` : "成品已导出");
     } catch (error) {
-      console.error(error);
-      flash("导出失败，请稍后重试");
+      console.error("FilmFrame export failed", error);
+      flash(error instanceof Error ? error.message : "导出失败，请稍后重试");
     } finally {
       setExporting(false);
     }
