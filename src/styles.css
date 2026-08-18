@@ -148,7 +148,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .editor-brand { font-size: 19px; border-right: 1px solid var(--line); padding-right: 26px; }
 .project-name { display: flex; align-items: center; gap: 10px; }
 .project-name span { color: var(--muted); font-size: 11px; }
-.project-name input { background: none; border: 0; color: var(--paper); width: 170px; font-weight: 650; letter-spacing: .08em; padding: 7px; }
+.project-name input { background: none; border: 0; color: var(--paper); width: 170px; font-size: 13px; font-weight: 650; letter-spacing: .08em; padding: 7px; }
 .topbar-spacer { flex: 1; }
 .local-badge { border: 1px solid var(--line); color: #a5a79e; height: 34px; padding: 0 13px; display: flex; align-items: center; gap: 9px; font: 11px monospace; letter-spacing: .08em; }
 .local-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(118,173,114,.6); }
@@ -156,7 +156,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .export-button:disabled { opacity: .5; cursor: default; }
 .close-editor { width: 38px; height: 38px; display: grid; place-items: center; background: transparent; border: 1px solid transparent; cursor: pointer; }
 .close-editor:hover { border-color: var(--line); }
-.editor-layout { height: calc(100vh - 66px); display: grid; grid-template-columns: 228px minmax(550px, 1fr) 276px; grid-template-rows: minmax(0, 1fr) 150px; }
+.editor-layout { height: calc(100vh - 66px); display: grid; grid-template-columns: 276px minmax(550px, 1fr) 276px; grid-template-rows: minmax(0, 1fr) 150px; }
 .panel { background: #151815; min-height: 0; }
 .template-panel { border-right: 1px solid var(--line); padding: 18px 12px; overflow-y: auto; }
 .settings-panel { border-left: 1px solid var(--line); overflow-y: auto; }
@@ -349,7 +349,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .home-nav { padding-inline: 24px; }
   .hero { padding-inline: 28px; gap: 45px; }
   .hero { grid-template-columns: .95fr 1.05fr; }
-  .editor-layout { grid-template-columns: 190px minmax(480px, 1fr) 240px; }
+  .editor-layout { grid-template-columns: 184px minmax(480px, 1fr) 240px; }
   .template-option small, .per-photo-note { display: none; }
   .settings-section { padding-inline: 12px; }
 }
