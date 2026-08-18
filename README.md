@@ -1,25 +1,26 @@
 # FILMFRAME 135
 
-一个在浏览器本地运行的 135 胶片画框编辑器。上传照片后可选择四种胶片结构，调整构图，并为每张照片分别编辑胶卷型号、片边编号、卷号、地点和日期。
+A browser-local 135 film frame editor. Upload photos, choose from four film structures, refine the crop, and edit film stock, edge code, roll number, location, and date for every photograph independently.
 
-## 特点
+## Features
 
-- 原图只做裁切、缩放、位移和 90° 旋转，不添加 AI 重绘或滤镜
-- 每张照片独立保存模板和片边信息
-- 20 种常见 135 胶卷型号，片边编号仍可手动修改
-- 单张导出 PNG，多张打包导出 ZIP
-- 照片与编辑状态仅保留在当前浏览器内存中
+- Crop, zoom, reposition, and rotate by 90° without AI redraws or filters
+- Independent templates and edge metadata for every photo
+- 20 curated 135 film stocks with editable edge codes
+- Single-frame PNG export and multi-frame ZIP export
+- Photos and editing state remain only in the current browser session
 
-## 本地运行
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 构建与验证
+## Build and Verification
 
 ```bash
 npm run build
+npm test
 npm run test:sites
 ```
