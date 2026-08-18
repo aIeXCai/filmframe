@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, "SF Pro Text", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-family: Inter, "SF Pro Text", system-ui, sans-serif;
   color: #e7e2d5;
   background: #10120f;
   font-synthesis: none;
@@ -12,8 +12,8 @@
   --amber: #e69b19;
   --amber-soft: #c98414;
   --green: #76ad72;
-  --home-sans: "Noto Sans SC Variable", "PingFang SC", system-ui, sans-serif;
-  --home-serif: "Noto Serif SC Variable", "Songti SC", serif;
+  --home-sans: "Noto Sans Variable", Inter, system-ui, sans-serif;
+  --home-serif: "Noto Serif Variable", Georgia, serif;
 }
 
 * {
@@ -217,7 +217,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .style-c .edge-code-secondary { display: none; }
 .style-c .edge-roll { top: 7.8%; right: 15.7%; }
 .style-c .edge-frame { bottom: 13.1%; left: 54.1%; min-width: 4%; text-align: center; }
-.style-c .film-metadata > .edge-location, .style-c .film-metadata > .edge-date { z-index: 4; bottom: 4.7%; color: #b94a2d; background: transparent; box-shadow: none; font-family: "Bradley Hand", "Kaiti SC", cursive; font-weight: 600; font-size: clamp(13px, 1.8cqw, 28px); letter-spacing: .12em; transform: rotate(-2deg); }
+.style-c .film-metadata > .edge-location, .style-c .film-metadata > .edge-date { z-index: 4; bottom: 4.7%; color: #b94a2d; background: transparent; box-shadow: none; font-family: "Bradley Hand", cursive; font-weight: 600; font-size: clamp(13px, 1.8cqw, 28px); letter-spacing: .12em; transform: rotate(-2deg); }
 .style-c .edge-location { left: 62.7%; max-width: 17%; overflow: hidden; text-overflow: ellipsis; }
 .style-c .edge-date { left: 80%; }
 

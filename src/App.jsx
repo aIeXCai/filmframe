@@ -22,29 +22,29 @@ import { EXPORT_PNG_OPTIONS, prepareExportNode } from "./export-image.js";
 
 const TEMPLATE_DATA = {
   A: {
-    name: "经典底片",
-    description: "完整齿孔与机械片边字",
+    name: "Classic Negative",
+    description: "Full sprocket holes and mechanical edge markings",
     src: "/assets/style-a-clean.png",
     previewSrc: "/assets/style-a.png",
     window: { left: "5.1%", top: "17.8%", width: "90.6%", height: "69.1%" },
   },
   B: {
-    name: "扫描片夹",
-    description: "克制、专业的扫描档案感",
+    name: "Archival Carrier",
+    description: "A restrained, professional scan archive look",
     src: "/assets/style-b-clean.png",
     previewSrc: "/assets/style-b.png",
     window: { left: "15.7%", top: "19.4%", width: "67.8%", height: "58.5%" },
   },
   C: {
-    name: "灯箱正片",
-    description: "温暖通透的旅行叙事",
+    name: "Lightbox Positive",
+    description: "Warm, luminous travel storytelling",
     src: "/assets/style-c-clean.png",
     previewSrc: "/assets/style-c.png",
     window: { left: "13.7%", top: "15.6%", width: "72.7%", height: "65.1%" },
   },
   D: {
-    name: "幻灯片灯箱",
-    description: "冷调灯箱与专业正片装帧",
+    name: "Mounted Slide",
+    description: "Cool lightbox tones and professional slide mounting",
     src: "/assets/style-d-lightbox-v2.png",
     previewSrc: "/assets/style-d-preview-v2.png",
     window: { left: "21.15%", top: "23.15%", width: "62.9%", height: "50.8%" },
@@ -114,7 +114,7 @@ function FilmSurface({ item, frameNumber, metadata, interactive = false, onDragS
   const displayFrame = `${frameNumber}A`;
   return (
     <div className={`film-surface style-${item.style.toLowerCase()}`} ref={surfaceRef}>
-      <img className="template-image" src={template.src} alt={`${template.name}模板`} draggable="false" />
+      <img className="template-image" src={template.src} alt={`${template.name} template`} draggable="false" />
       {item.style === "D" && <div className="slide-mount" aria-hidden="true" />}
       <div
         className={`photo-window ${interactive ? "is-interactive" : ""}`}
@@ -130,10 +130,10 @@ function FilmSurface({ item, frameNumber, metadata, interactive = false, onDragS
           }}
         />
         {interactive && (
-          <div className="drag-hint"><ArrowsOutCardinal size={15} weight="bold" /> 拖动画面</div>
+          <div className="drag-hint"><ArrowsOutCardinal size={15} weight="bold" /> Drag to reposition</div>
         )}
       </div>
-      <div className="film-metadata" aria-label="胶片片边信息">
+      <div className="film-metadata" aria-label="Film edge metadata">
         <span className="edge-stock">{metadata.filmStock}</span>
         <span className="edge-code">{metadata.filmCode}</span>
         <span className="edge-code-secondary">{metadata.filmCode}</span>
@@ -151,47 +151,47 @@ function Home({ onStart }) {
     <div className="home-page">
       <header className="home-nav">
         <button className="brand" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>FILMFRAME <span>135</span></button>
-        <nav aria-label="主页导航">
-          <a href="#styles">胶片风格</a>
-          <a href="#workflow">使用方式</a>
-          <a href="#privacy">隐私</a>
+        <nav aria-label="Main navigation">
+          <a href="#styles">Film Styles</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#privacy">Privacy</a>
         </nav>
-        <button className="nav-cta" onClick={onStart}>打开工作台 <ArrowRight weight="bold" /></button>
+        <button className="nav-cta" onClick={onStart}>Open Editor <ArrowRight weight="bold" /></button>
       </header>
 
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <div className="eyebrow"><span /> 为数码照片保留胶片的载体感</div>
-            <h1>照片不需要被重绘。<em>它只需要一个好画框。</em></h1>
-            <p>上传照片，套用真实感 135 胶片结构，调整构图与片边信息。没有 AI，没有滤镜，所有处理都留在你的浏览器里。</p>
+            <div className="eyebrow"><span /> PRESERVE THE PHYSICALITY OF FILM</div>
+            <h1>No need to redraw.<em>Just the right frame.</em></h1>
+            <p>Upload a photograph, place it in an authentic 135 film structure, then refine the crop and edge metadata. No AI, no filters—everything stays in your browser.</p>
             <div className="hero-actions">
-              <button className="primary-action" onClick={onStart}>开始制作 <ArrowRight weight="bold" /></button>
-              <a className="text-action" href="#styles">查看四种风格</a>
+              <button className="primary-action" onClick={onStart}>Start Creating <ArrowRight weight="bold" /></button>
+              <a className="text-action" href="#styles">Explore Four Styles</a>
             </div>
             <div className="trust-row">
-              <span><ShieldCheck weight="fill" /> 本地处理</span>
-              <span><ImageSquare weight="fill" /> 原图保真</span>
-              <span><LockKey weight="fill" /> 无需登录</span>
+              <span><ShieldCheck weight="fill" /> Local Processing</span>
+              <span><ImageSquare weight="fill" /> Original Preserved</span>
+              <span><LockKey weight="fill" /> No Sign-in</span>
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="经典底片效果预览">
+          <div className="hero-visual" aria-label="Classic negative effect preview">
             <div className="hero-index">FRAME / 01</div>
-            <img src="/assets/style-a.png" alt="照片套用经典 135 底片的效果" />
+            <img src="/assets/style-a.png" alt="Photograph presented in a classic 135 negative frame" />
             <div className="hero-caption"><span>ZHAGANA · 2026.07</span><span>FILMFRAME 135 / LOCAL EDITION</span></div>
           </div>
         </section>
 
         <section className="statement">
           <p>NOT A FILTER.</p>
-          <h2>我们不模拟胶片颜色，<br />只还原胶片作为物件的存在感。</h2>
+          <h2>We do not imitate film color.<br />We restore film as a physical object.</h2>
         </section>
 
         <section className="styles-section" id="styles">
           <div className="section-heading">
             <span>01 / FOUR FORMS</span>
-            <div><h2>四种胶片结构</h2><p>每张照片都可以独立选择自己的表达方式。</p></div>
+            <div><h2>Four Film Structures</h2><p>Give every photograph its own distinct form.</p></div>
           </div>
           <div className="style-showcase">
             {Object.entries(TEMPLATE_DATA).map(([key, template]) => (
@@ -206,20 +206,20 @@ function Home({ onStart }) {
         <section className="workflow-section" id="workflow">
           <div className="section-heading">
             <span>02 / WORKFLOW</span>
-            <div><h2>从原图到成品，三步完成</h2><p>固定结构，有限调整，让批量制作也保持一致。</p></div>
+            <div><h2>From Original to Final in Three Steps</h2><p>A consistent structure and focused controls keep every frame cohesive.</p></div>
           </div>
           <div className="steps">
-            <article><b>01</b><UploadSimple /><h3>上传照片</h3><p>一次添加最多 12 张 JPEG、PNG 或 WebP。</p></article>
-            <article><b>02</b><Sparkle /><h3>逐张选择风格</h3><p>A、B、C、D 可按照片独立切换，裁切参数彼此保留。</p></article>
-            <article><b>03</b><DownloadSimple /><h3>检查并导出</h3><p>帧号跟随顺序自动更新，批量打包为 ZIP。</p></article>
+            <article><b>01</b><UploadSimple /><h3>Upload Photos</h3><p>Add up to 12 JPEG, PNG, or WebP files at once.</p></article>
+            <article><b>02</b><Sparkle /><h3>Choose Each Style</h3><p>Switch A, B, C, or D independently while preserving each crop.</p></article>
+            <article><b>03</b><DownloadSimple /><h3>Review and Export</h3><p>Frame numbers update automatically, with batch exports packed as a ZIP.</p></article>
           </div>
         </section>
 
         <section className="privacy-section" id="privacy">
           <div className="privacy-mark"><LockKey weight="duotone" /></div>
-          <div><span>LOCAL BY DEFAULT</span><h2>照片不离开你的设备。</h2></div>
-          <p>解码、裁切、合成和导出全部在浏览器本地进行。我们不分析照片，也不拿它训练任何模型。</p>
-          <button onClick={onStart}>进入本地工作台 <ArrowRight /></button>
+          <div><span>LOCAL BY DEFAULT</span><h2>Your photos never leave your device.</h2></div>
+          <p>Decoding, cropping, compositing, and exporting all happen in your browser. We never analyze your photos or use them to train a model.</p>
+          <button onClick={onStart}>Enter the Local Editor <ArrowRight /></button>
         </section>
       </main>
 
@@ -269,16 +269,16 @@ function Editor({ onHome }) {
   const addFiles = (fileList) => {
     const accepted = [...fileList].filter((file) => ["image/jpeg", "image/png", "image/webp"].includes(file.type));
     const slots = 12 - items.length;
-    if (slots <= 0) return flash("一个项目最多添加 12 张照片");
+    if (slots <= 0) return flash("A project can contain up to 12 photos");
     const additions = accepted.slice(0, slots).map((file) => ({
       ...makeItem(`${Date.now()}-${file.name}-${Math.random()}`),
       name: file.name,
       src: URL.createObjectURL(file),
     }));
-    if (!additions.length) return flash("请选择 JPEG、PNG 或 WebP 图片");
+    if (!additions.length) return flash("Choose JPEG, PNG, or WebP images");
     setItems((current) => [...current, ...additions]);
     setSelectedId(additions[0].id);
-    if (accepted.length > slots) flash(`已添加 ${slots} 张，项目上限为 12 张`);
+    if (accepted.length > slots) flash(`Added ${slots} photos—the project limit is 12`);
   };
 
   const removeSelected = () => {
@@ -340,10 +340,10 @@ function Editor({ onHome }) {
         link.click();
         window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
       }
-      flash(items.length > 1 ? `已导出 ${items.length} 张成品` : "成品已导出");
+      flash(items.length > 1 ? `Exported ${items.length} finished frames` : "Finished frame exported");
     } catch (error) {
       console.error("FilmFrame export failed", error);
-      flash(error instanceof Error ? error.message : "导出失败，请稍后重试");
+      flash(error instanceof Error ? error.message : "Export failed. Please try again.");
     } finally {
       setExporting(false);
     }
@@ -353,19 +353,19 @@ function Editor({ onHome }) {
     <div className="editor-page" onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp}>
       <header className="editor-topbar">
         <button className="editor-brand" onClick={onHome}>FILMFRAME <b>135</b></button>
-        <label className="project-name"><span>项目</span><input value={projectName} onChange={(event) => setProjectName(event.target.value)} maxLength={24} placeholder="请输入项目名称" /></label>
+        <label className="project-name"><span>Project</span><input value={projectName} onChange={(event) => setProjectName(event.target.value)} maxLength={24} placeholder="Enter a project name" /></label>
         <div className="topbar-spacer" />
         <div className="local-badge"><span /> LOCAL · PRIVATE</div>
         <button className="export-button" onClick={exportProject} disabled={!items.length || exporting}>
           {exporting ? <span className="spinner" /> : <DownloadSimple weight="bold" />}
-          {exporting ? "正在生成" : items.length > 1 ? "导出全部" : "导出作品"}
+          {exporting ? "Rendering" : items.length > 1 ? "Export All" : "Export Frame"}
         </button>
-        <button className="close-editor" onClick={onHome} aria-label="返回主页"><X /></button>
+        <button className="close-editor" onClick={onHome} aria-label="Return to home"><X /></button>
       </header>
 
       <main className="editor-layout">
         <aside className="template-panel panel">
-          <div className="panel-title"><span>胶片模板</span><small>当前照片</small></div>
+          <div className="panel-title"><span>Film Templates</span><small>Current Photo</small></div>
           <div className="template-list">
             {Object.entries(TEMPLATE_DATA).map(([key, template]) => (
               <button key={key} className={`template-option ${selected?.style === key ? "selected" : ""}`} onClick={() => selected && updateSelected({ style: key })} disabled={!selected}>
@@ -375,12 +375,12 @@ function Editor({ onHome }) {
               </button>
             ))}
           </div>
-          <div className="per-photo-note"><CheckCircle weight="fill" /><p><strong>逐张独立选择</strong><br />切换模板只影响当前照片。</p></div>
+          <div className="per-photo-note"><CheckCircle weight="fill" /><p><strong>Independent per photo</strong><br />Changing a template affects only the current photo.</p></div>
         </aside>
 
         <section className="canvas-column">
           <div className="canvas-toolbar">
-            <div><span>照片 {items.length ? twoDigits(selectedIndex) : "--"}</span><small>{selected?.name || "尚未添加照片"}</small></div>
+            <div><span>Photo {items.length ? twoDigits(selectedIndex) : "--"}</span><small>{selected?.name || "No photo added"}</small></div>
             {selected && <div className="style-tag">STYLE {selected.style} · {TEMPLATE_DATA[selected.style].name}</div>}
           </div>
 
@@ -388,17 +388,17 @@ function Editor({ onHome }) {
             {selected ? (
               <FilmSurface item={selected} frameNumber={twoDigits(selectedIndex)} metadata={metadata} interactive onDragStart={onDragStart} />
             ) : (
-              <button className="empty-canvas" onClick={() => fileInputRef.current?.click()}><UploadSimple /><strong>上传照片开始制作</strong><span>支持 JPEG、PNG、WebP，最多 12 张</span><small>照片只在当前浏览器本地处理</small></button>
+              <button className="empty-canvas" onClick={() => fileInputRef.current?.click()}><UploadSimple /><strong>Upload a photo to begin</strong><span>JPEG, PNG, or WebP · Up to 12 photos</span><small>Photos are processed only in this browser</small></button>
             )}
           </div>
 
           <div className="canvas-controls">
-            <button onClick={() => selected && updateSelected({ rotation: (selected.rotation - 90) % 360 })} disabled={!selected}>左转 90°</button>
-            <button onClick={() => selected && updateSelected({ rotation: (selected.rotation + 90) % 360 })} disabled={!selected}>右转 90°</button>
-            <button onClick={() => selected && updateSelected({ zoom: 100, x: 0, y: 0, rotation: 0 })} disabled={!selected}>重置画面</button>
+            <button onClick={() => selected && updateSelected({ rotation: (selected.rotation - 90) % 360 })} disabled={!selected}>Rotate Left 90°</button>
+            <button onClick={() => selected && updateSelected({ rotation: (selected.rotation + 90) % 360 })} disabled={!selected}>Rotate Right 90°</button>
+            <button onClick={() => selected && updateSelected({ zoom: 100, x: 0, y: 0, rotation: 0 })} disabled={!selected}>Reset Image</button>
             <span />
             <Minus />
-            <input aria-label="缩放" type="range" min="100" max="200" value={selected?.zoom || 100} onChange={(event) => updateSelected({ zoom: Number(event.target.value) })} disabled={!selected} />
+            <input aria-label="Zoom" type="range" min="100" max="200" value={selected?.zoom || 100} onChange={(event) => updateSelected({ zoom: Number(event.target.value) })} disabled={!selected} />
             <Plus />
             <output>{selected?.zoom || 100}%</output>
           </div>
@@ -406,40 +406,40 @@ function Editor({ onHome }) {
 
         <aside className="settings-panel panel">
           <div className="settings-section">
-            <div className="panel-title"><span>片边信息</span><small>当前照片</small></div>
-            <label className="film-stock-field"><span>胶卷型号</span><select className={!selected?.filmStockId ? "is-placeholder" : ""} value={selected?.filmStockId || ""} onChange={changeFilmStock} disabled={!selected}>
-              <option value="" disabled>请选择胶卷型号</option>
+            <div className="panel-title"><span>Edge Metadata</span><small>Current Photo</small></div>
+            <label className="film-stock-field"><span>Film Stock</span><select className={!selected?.filmStockId ? "is-placeholder" : ""} value={selected?.filmStockId || ""} onChange={changeFilmStock} disabled={!selected}>
+              <option value="" disabled>Select a film stock</option>
               {FILM_STOCKS.map((film) => <option key={film.id} value={film.id}>{film.name}</option>)}
             </select></label>
-            <label><span>片边编号</span><input value={selected?.filmCode || ""} onChange={(event) => updateSelected({ filmCode: event.target.value.toUpperCase() })} maxLength={10} placeholder="请输入文字" disabled={!selected} /></label>
-            <label><span>卷号</span><input value={selected?.rollNumber || ""} onChange={(event) => updateSelected({ rollNumber: event.target.value.toUpperCase() })} maxLength={12} placeholder="请输入文字" disabled={!selected} /></label>
-            <label><span>地点</span><input value={selected?.location || ""} onChange={(event) => updateSelected({ location: event.target.value.toUpperCase() })} maxLength={18} placeholder="请输入文字" disabled={!selected} /></label>
-            <label><span>日期</span><input value={selected?.date || ""} onChange={(event) => updateSelected({ date: event.target.value })} maxLength={10} placeholder="请输入文字" disabled={!selected} /></label>
-            <label className="locked-field"><span>帧号</span><div><LockKey weight="fill" /><output>{items.length ? twoDigits(selectedIndex) : "--"}</output></div></label>
-            <div className="auto-number-note"><span>AUTO</span><p>帧号跟随底部照片顺序自动生成，排序或删除后会连续更新。</p></div>
+            <label><span>Edge Code</span><input value={selected?.filmCode || ""} onChange={(event) => updateSelected({ filmCode: event.target.value.toUpperCase() })} maxLength={10} placeholder="Enter text" disabled={!selected} /></label>
+            <label><span>Roll No.</span><input value={selected?.rollNumber || ""} onChange={(event) => updateSelected({ rollNumber: event.target.value.toUpperCase() })} maxLength={12} placeholder="Enter text" disabled={!selected} /></label>
+            <label><span>Location</span><input value={selected?.location || ""} onChange={(event) => updateSelected({ location: event.target.value.toUpperCase() })} maxLength={18} placeholder="Enter text" disabled={!selected} /></label>
+            <label><span>Date</span><input value={selected?.date || ""} onChange={(event) => updateSelected({ date: event.target.value })} maxLength={10} placeholder="Enter text" disabled={!selected} /></label>
+            <label className="locked-field"><span>Frame No.</span><div><LockKey weight="fill" /><output>{items.length ? twoDigits(selectedIndex) : "--"}</output></div></label>
+            <div className="auto-number-note"><span>AUTO</span><p>Frame numbers follow the photo order and stay continuous after reordering or deletion.</p></div>
           </div>
 
           <div className="settings-section crop-summary">
-            <div className="panel-title"><span>当前构图</span><small>不改变原图色彩</small></div>
-            <dl><div><dt>缩放</dt><dd>{selected?.zoom || 100}%</dd></div><div><dt>横向位置</dt><dd>{Math.round(selected?.x || 0)}</dd></div><div><dt>纵向位置</dt><dd>{Math.round(selected?.y || 0)}</dd></div><div><dt>旋转</dt><dd>{selected?.rotation || 0}°</dd></div></dl>
+            <div className="panel-title"><span>Current Crop</span><small>Original color preserved</small></div>
+            <dl><div><dt>Zoom</dt><dd>{selected?.zoom || 100}%</dd></div><div><dt>X Position</dt><dd>{Math.round(selected?.x || 0)}</dd></div><div><dt>Y Position</dt><dd>{Math.round(selected?.y || 0)}</dd></div><div><dt>Rotation</dt><dd>{selected?.rotation || 0}°</dd></div></dl>
           </div>
 
           <div className="settings-actions">
-            <button onClick={() => moveSelected(-1)} disabled={!selected || selectedIndex === 0}><ArrowLeft /> 向前移动</button>
-            <button onClick={() => moveSelected(1)} disabled={!selected || selectedIndex === items.length - 1}>向后移动 <ArrowRight /></button>
-            <button className="delete-button" onClick={removeSelected} disabled={!selected}><Trash /> 删除当前照片</button>
+            <button onClick={() => moveSelected(-1)} disabled={!selected || selectedIndex === 0}><ArrowLeft /> Move Earlier</button>
+            <button onClick={() => moveSelected(1)} disabled={!selected || selectedIndex === items.length - 1}>Move Later <ArrowRight /></button>
+            <button className="delete-button" onClick={removeSelected} disabled={!selected}><Trash /> Delete Current Photo</button>
           </div>
         </aside>
 
         <section className="thumbnail-rail">
-          <div className="rail-heading"><div><strong>{items.length} 张照片</strong><span>帧号按当前顺序自动生成</span></div><button onClick={() => fileInputRef.current?.click()} disabled={items.length >= 12}><Plus /> 添加照片</button></div>
+          <div className="rail-heading"><div><strong>{items.length} {items.length === 1 ? "Photo" : "Photos"}</strong><span>Frame numbers follow the current order</span></div><button onClick={() => fileInputRef.current?.click()} disabled={items.length >= 12}><Plus /> Add Photos</button></div>
           <div className="thumbnails">
             {items.map((item, index) => (
               <button key={item.id} className={`thumbnail ${item.id === selectedId ? "selected" : ""}`} onClick={() => setSelectedId(item.id)}>
                 <img src={item.src} alt={item.name} /><span className="thumb-number">{twoDigits(index)}</span><span className="thumb-style">{item.style}</span>
               </button>
             ))}
-            {items.length < 12 && <button className="add-thumbnail" onClick={() => fileInputRef.current?.click()}><Plus /><span>添加照片</span></button>}
+            {items.length < 12 && <button className="add-thumbnail" onClick={() => fileInputRef.current?.click()}><Plus /><span>Add Photos</span></button>}
           </div>
         </section>
       </main>

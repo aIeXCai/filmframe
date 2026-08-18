@@ -9,7 +9,7 @@ test("export options do not cache-bust local blob URLs", () => {
 });
 
 test("rejects when the export canvas is not mounted", async () => {
-  await assert.rejects(prepareExportNode(undefined), /导出画布尚未准备完成/);
+  await assert.rejects(prepareExportNode(undefined), /export canvas is not ready/i);
 });
 
 test("rejects when an image in the export canvas failed to load", async () => {
